@@ -12,11 +12,28 @@
 <meta property="og:description" content="Política de privacidad de la herramienta de publicación de Planeta Insólito.">
 <meta property="og:image" content="https://todoesdigitalrd.github.io/planeta-insolito-legal/isotipo.png">
 <link rel="stylesheet" href="estilo.css">
+<script>
+document.documentElement.classList.add('js');
+document.addEventListener('DOMContentLoaded',function(){
+  var els=document.querySelectorAll('.cifras li,.seccion h2,.seccion .intro,.red,.bloque');
+  els.forEach(function(e,i){e.classList.add('aparece');e.style.transitionDelay=(i%4)*70+'ms';});
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('visible')});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}})},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+  document.querySelectorAll('[data-cifra]').forEach(function(el){
+    var fin=+el.dataset.cifra,pre=el.dataset.pre||'',suf=el.dataset.suf||'',t0=null;
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    function paso(t){if(!t0)t0=t;var p=Math.min((t-t0)/1400,1);var v=Math.round(fin*(1-Math.pow(1-p,3)));el.textContent=pre+v.toLocaleString('es-DO')+suf;if(p<1)requestAnimationFrame(paso);}
+    new IntersectionObserver(function(en,o){if(en[0].isIntersecting){requestAnimationFrame(paso);o.disconnect();}}).observe(el);
+  });
+});
+</script>
+
 </head>
 <body>
 <header class="cabecera corta">
   <div class="contenedor">
-    <img src="isotipo.png" alt="La nutria exploradora, isotipo de Planeta Insólito" width="512" height="512">
+    <img class="isotipo" src="isotipo.png" alt="La nutria exploradora, isotipo de Planeta Insólito" width="512" height="512">
     <h1>Privacidad</h1>
     <p>Planeta Insolito Publicador</p>
   </div>
