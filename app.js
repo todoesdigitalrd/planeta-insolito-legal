@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var paso = function (t) {
       if (!t0) t0 = t;
       var p = Math.min((t - t0) / 1600, 1);
-      el.textContent = pre + Math.round(fin * (1 - Math.pow(1 - p, 3))).toLocaleString('es-DO') + suf;
+      el.textContent = pre + Math.round(fin * (1 - Math.pow(1 - p, 3))).toLocaleString('en-US').replace(/,/g, '.') + suf;
       if (p < 1) requestAnimationFrame(paso);
     };
     el.textContent = pre + '0' + suf;
