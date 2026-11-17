@@ -34,7 +34,7 @@ a { color: var(--oro); text-underline-offset: 3px; }
 }
 .cabecera img {
   width: 132px; height: 132px; border-radius: 50%;
-  border: 3px solid #f2cb6b; object-fit: cover;
+  object-fit: contain;
 }
 .cabecera h1 {
   margin: 18px 0 6px; font-size: clamp(2rem, 6vw, 2.8rem);
