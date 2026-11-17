@@ -1,0 +1,65 @@
+:root {
+  --fondo: #f6f4ee;
+  --tinta: #13202f;
+  --suave: #5b6675;
+  --oro: #b8862b;
+  --noche: #05152a;
+  --tarjeta: #ffffff;
+  --borde: #e4dfd2;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #05152a;
+    --tinta: #eef1f5;
+    --suave: #a7b1bf;
+    --oro: #f2cb6b;
+    --tarjeta: #0c2140;
+    --borde: #1d3557;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font: 17px/1.65 "Avenir Next", -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+a { color: var(--oro); text-underline-offset: 3px; }
+.cabecera {
+  background: var(--noche);
+  color: #eef1f5;
+  text-align: center;
+  padding: 56px 16px 64px;
+}
+.cabecera img {
+  width: 132px; height: 132px; border-radius: 50%;
+  border: 3px solid #f2cb6b; object-fit: cover;
+}
+.cabecera h1 {
+  margin: 18px 0 6px; font-size: clamp(2rem, 6vw, 2.8rem);
+  letter-spacing: .02em; color: #f2cb6b; text-transform: uppercase;
+}
+.cabecera p { margin: 0 auto; max-width: 520px; color: #c9d2de; }
+main { max-width: 720px; margin: -32px auto 0; padding: 0 16px 48px; }
+.redes {
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+.red {
+  display: block; background: var(--tarjeta); border: 1px solid var(--borde);
+  border-radius: 14px; padding: 18px 16px; text-decoration: none; color: var(--tinta);
+  transition: transform .15s, border-color .15s;
+}
+.red:hover, .red:focus-visible { transform: translateY(-2px); border-color: var(--oro); }
+.red strong { display: block; font-size: 1.05rem; }
+.red span { color: var(--suave); font-size: .9rem; word-break: break-word; }
+.bloque {
+  background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 14px;
+  padding: 24px 22px; margin-top: 20px;
+}
+.bloque h2 { margin: 0 0 8px; font-size: 1.15rem; }
+.bloque p { margin: 0 0 12px; }
+.bloque p:last-child { margin-bottom: 0; }
+.fecha { color: var(--suave); font-size: .9rem; }
+footer { text-align: center; color: var(--suave); font-size: .85rem; padding: 0 16px 40px; }
