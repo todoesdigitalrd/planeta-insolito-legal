@@ -77,26 +77,28 @@ a { color: var(--oro-osc); text-underline-offset: 3px; }
 .checks li { display: inline-flex; align-items: center; gap: 8px; }
 .checks svg { width: 18px; height: 18px; color: var(--oro); }
 
-.portada-arte { position: relative; min-height: clamp(360px, 42vw, 560px); display: grid; place-items: center; }
-.halo { position: absolute; width: 78%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(242,203,107,.32) 0%, rgba(242,203,107,.08) 45%, transparent 70%); animation: latido 6s ease-in-out infinite; }
+.portada-arte { position: relative; min-height: clamp(360px, 42vw, 560px); display: grid; align-items: center; justify-items: center;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); grid-template-areas: "v1 nutria v2" "v3 nutria v4"; gap: 18px 14px; }
+.portada.corta .portada-arte { grid-template-columns: 1fr; grid-template-areas: "nutria"; }
+.halo { position: absolute; left: 50%; top: 50%; margin: -39% 0 0 -39%; width: 78%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(242,203,107,.32) 0%, rgba(242,203,107,.08) 45%, transparent 70%); animation: latido 6s ease-in-out infinite; }
 @keyframes latido { 50% { transform: scale(1.06); opacity: .8; } }
-.nutria-hero { position: relative; width: clamp(260px, 32vw, 460px); height: auto; filter: drop-shadow(0 26px 40px rgba(0,0,0,.45));
+.nutria-hero { grid-area: nutria; position: relative; width: clamp(220px, 22vw, 330px); height: auto; filter: drop-shadow(0 26px 40px rgba(0,0,0,.45));
   translate: var(--mx, 0) var(--my, 0); transition: translate .3s ease-out; animation: flotar 6s ease-in-out infinite; }
 @keyframes flotar { 50% { transform: translateY(-12px); } }
 .portada.corta .portada-arte { min-height: clamp(220px, 26vw, 340px); }
 .portada.corta .nutria-hero { width: clamp(200px, 22vw, 300px); }
 
-.vidrio { position: absolute; z-index: 2; min-width: 150px; padding: 14px 16px; border-radius: 16px; color: #fff;
+.vidrio { position: relative; z-index: 2; width: 100%; max-width: 190px; min-width: 0; padding: 14px 16px; border-radius: 16px; color: #fff;
   background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); backdrop-filter: blur(10px);
   box-shadow: 0 14px 34px rgba(0,0,0,.25); font-size: .86rem; line-height: 1.35; transition: translate .4s ease-out; animation: aparecer .8s both, mecer 7s ease-in-out infinite; }
 .vidrio strong { display: block; font: 1.9rem/1.1 var(--titulo); color: var(--oro); margin: 4px 0 2px; font-variant-numeric: tabular-nums; }
 .vidrio > span:not(.vt):not(.chip) { color: #c8d3e2; }
 .vt { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #9fb3cc; }
 .chip { display: inline-block; margin: 6px 4px 0 0; padding: 3px 9px; border-radius: 999px; background: rgba(242,203,107,.16); color: var(--oro); font-weight: 600; font-size: .78rem; }
-.v1 { top: 6%; left: -2%; animation-delay: .1s, 0s; }
-.v2 { top: 10%; right: -2%; animation-delay: .25s, 1.2s; }
-.v3 { bottom: 10%; left: -6%; max-width: 230px; animation-delay: .4s, 2.4s; }
-.v4 { bottom: 6%; right: 0; animation-delay: .55s, 3.6s; }
+.v1 { grid-area: v1; align-self: end; animation-delay: .1s, 0s; }
+.v2 { grid-area: v2; align-self: end; animation-delay: .25s, 1.2s; }
+.v3 { grid-area: v3; align-self: start; animation-delay: .4s, 2.4s; }
+.v4 { grid-area: v4; align-self: start; animation-delay: .55s, 3.6s; }
 @keyframes aparecer { from { opacity: 0; transform: translateY(14px) scale(.96); } }
 @keyframes mecer { 50% { transform: translateY(-6px); } }
 
@@ -183,8 +185,8 @@ a { color: var(--oro-osc); text-underline-offset: 3px; }
   .portada-txt { order: 2; }
   .lead { margin-left: auto; margin-right: auto; }
   .acciones, .checks { justify-content: center; }
-  .portada-arte { order: 1; min-height: 360px; }
-  .v1, .v3 { left: 0; } .v2, .v4 { right: 0; }
+  .portada-arte { order: 1; min-height: 0; grid-template-columns: 1fr 1fr; grid-template-areas: "nutria nutria" "v1 v2" "v3 v4"; }
+  .vidrio { max-width: none; }
   .portada { padding-top: 104px; }
   .fila, .fila.invertida { grid-template-columns: 1fr; text-align: center; }
   .fila.invertida .fila-txt { order: 0; }
@@ -207,9 +209,8 @@ a { color: var(--oro-osc); text-underline-offset: 3px; }
   .flecha { position: static; margin-left: auto; }
   .vidrio { min-width: 0; padding: 10px 12px; font-size: .78rem; }
   .vidrio strong { font-size: 1.4rem; }
-  .v1 { left: 0; top: 2%; } .v2 { right: 0; top: 4%; }
+  .portada-arte { grid-template-areas: "nutria nutria" "v1 v2" "v4 v4"; gap: 10px; }
   .v3 { display: none; }
-  .v4 { right: 0; bottom: 2%; }
   .btn { width: 100%; justify-content: center; }
   .barra .btn-chico { width: auto; }
 }
