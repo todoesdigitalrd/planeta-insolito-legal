@@ -78,27 +78,27 @@ a { color: var(--oro-osc); text-underline-offset: 3px; }
 .checks svg { width: 18px; height: 18px; color: var(--oro); }
 
 .portada-arte { position: relative; min-height: clamp(360px, 42vw, 560px); display: grid; align-items: center; justify-items: center;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); grid-template-areas: "v1 nutria v2" "v3 nutria v4"; gap: 18px 14px; }
+  grid-template-columns: 1fr 1fr; grid-template-areas: "nutria nutria" "v1 v2" "v3 v4"; gap: 14px; }
 .portada.corta .portada-arte { grid-template-columns: 1fr; grid-template-areas: "nutria"; }
-.halo { position: absolute; left: 50%; top: 50%; margin: -39% 0 0 -39%; width: 78%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(242,203,107,.32) 0%, rgba(242,203,107,.08) 45%, transparent 70%); animation: latido 6s ease-in-out infinite; }
+.halo { position: absolute; left: 50%; top: 0; margin-left: -36%; width: 72%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(242,203,107,.32) 0%, rgba(242,203,107,.08) 45%, transparent 70%); animation: latido 6s ease-in-out infinite; }
 @keyframes latido { 50% { transform: scale(1.06); opacity: .8; } }
-.nutria-hero { grid-area: nutria; position: relative; width: clamp(220px, 22vw, 330px); height: auto; filter: drop-shadow(0 26px 40px rgba(0,0,0,.45));
+.nutria-hero { grid-area: nutria; position: relative; width: clamp(220px, 24vw, 320px); height: auto; filter: drop-shadow(0 26px 40px rgba(0,0,0,.45));
   translate: var(--mx, 0) var(--my, 0); transition: translate .3s ease-out; animation: flotar 6s ease-in-out infinite; }
 @keyframes flotar { 50% { transform: translateY(-12px); } }
 .portada.corta .portada-arte { min-height: clamp(220px, 26vw, 340px); }
 .portada.corta .nutria-hero { width: clamp(200px, 22vw, 300px); }
 
-.vidrio { position: relative; z-index: 2; width: 100%; max-width: 190px; min-width: 0; padding: 14px 16px; border-radius: 16px; color: #fff;
+.vidrio { position: relative; z-index: 2; width: 100%; min-width: 0; text-align: left; padding: 14px 16px; border-radius: 16px; color: #fff;
   background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); backdrop-filter: blur(10px);
   box-shadow: 0 14px 34px rgba(0,0,0,.25); font-size: .86rem; line-height: 1.35; transition: translate .4s ease-out; animation: aparecer .8s both, mecer 7s ease-in-out infinite; }
 .vidrio strong { display: block; font: 1.9rem/1.1 var(--titulo); color: var(--oro); margin: 4px 0 2px; font-variant-numeric: tabular-nums; }
 .vidrio > span:not(.vt):not(.chip) { color: #c8d3e2; }
 .vt { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #9fb3cc; }
 .chip { display: inline-block; margin: 6px 4px 0 0; padding: 3px 9px; border-radius: 999px; background: rgba(242,203,107,.16); color: var(--oro); font-weight: 600; font-size: .78rem; }
-.v1 { grid-area: v1; align-self: end; animation-delay: .1s, 0s; }
-.v2 { grid-area: v2; align-self: end; animation-delay: .25s, 1.2s; }
-.v3 { grid-area: v3; align-self: start; animation-delay: .4s, 2.4s; }
-.v4 { grid-area: v4; align-self: start; animation-delay: .55s, 3.6s; }
+.v1 { grid-area: v1; align-self: stretch; animation-delay: .1s, 0s; }
+.v2 { grid-area: v2; align-self: stretch; animation-delay: .25s, 1.2s; }
+.v3 { grid-area: v3; align-self: stretch; animation-delay: .4s, 2.4s; }
+.v4 { grid-area: v4; align-self: stretch; animation-delay: .55s, 3.6s; }
 @keyframes aparecer { from { opacity: 0; transform: translateY(14px) scale(.96); } }
 @keyframes mecer { 50% { transform: translateY(-6px); } }
 
